@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hue — Kanban</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<style>
+  :root {
+    --ink: #0D0E13;
+    --panel-top: #21252F;
+    --panel-bottom: #171A22;
+    --panel-border: rgba(255, 255, 255, 0.07);
+    --paper-top: #F3EEE2;
+    --paper-bottom: #E9E3D4;
+    --ochre: #D9973F;
+    --ochre-soft: rgba(217, 151, 63, 0.45);
+    --text: #EDEAE1;
+    --text-dim: #8A8E9B;
+    --text-faint: rgba(237, 234, 225, 0.4);
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+            "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 26px 40px 20px;
+    font-family: var(--font);
+    color: var(--text);
+    background:
+      radial-gradient(1100px 700px at 12% -12%, #262b3b 0%, transparent 60%),
+      radial-gradient(900px 650px at 105% 112%, #1b2029 0%, transparent 55%),
+      var(--ink);
+  }
+
+  .topbar {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-weight: 650;
+    font-size: 24px;
+    margin: 0;
+    letter-spacing: -0.01em;
+    justify-self: start;
+    background: linear-gradient(120deg, #F0C381 0%, #D9973F 50%, #C2703B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .clock {
+    justify-self: center;
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+    color: var(--text-dim);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .clock .time {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .clock .dot {
+    opacity: 0.35;
+  }
+
+  .board {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    min-height: 0;
+  }
+
+  .active-label {
+    font-size: 11.5px;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+  }
+
+  .daily-value {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .column {
+    background: linear-gradient(165deg, var(--panel-top) 0%, var(--panel-bottom) 100%);
+    border: 1px solid var(--panel-border);
+    border-radius: 16px;
+    padding: 16px 15px 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 24px 44px -26px rgba(0, 0, 0, 0.65);
+    transition: outline 100ms ease;
+  }
+
+  .column.drag-over { background: linear-gradient(165deg, #262b37 0%, #1a1d26 100%); }
+  .column.drag-blocked { outline: 1px dashed rgba(214, 96, 84, 0.55); outline-offset: -4px; }
+
+  .col-head {
+    flex: 0 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+  }
+
+  .col-head::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--ochre-soft), rgba(217, 151, 63, 0) 75%);
+  }
+
+  .col-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .col-count {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-variant-numeric: tabular-nums;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 3px 8px;
+    border-radius: 999px;
+  }
+
+  .cards {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .card {
+    background: linear-gradient(155deg, var(--paper-top) 0%, var(--paper-bottom) 100%);
+    color: var(--ink);
+    border-radius: 8px;
+    padding: 8px 14px 8px 6px;
+    cursor: grab;
+    line-height: 1.15;
+    word-break: break-word;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    box-shadow: 0 6px 14px -9px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    transition: transform 100ms ease, opacity 200ms ease, filter 200ms ease, box-shadow 120ms ease;
+  }
+
+  .card:hover { box-shadow: 0 8px 18px -9px rgba(0, 0, 0, 0.55), 0 1px 0 rgba(255, 255, 255, 0.5) inset; }
+
+  .card.blurred { display: none; }
+
+  .card.dragging { opacity: 0.35; }
+
+  .card:active { cursor: grabbing; }
+
+  .drag-handle {
+    flex: 0 0 auto;
+    width: 16px;
+    padding-top: 2px;
+    font-size: 13px;
+    line-height: 1;
+    color: var(--ink);
+    opacity: 0.28;
+    user-select: none;
+    letter-spacing: -1px;
+  }
+
+  .card:hover .drag-handle { opacity: 0.55; }
+
+  .star-toggle {
+    flex: 0 0 auto;
+    padding-top: 2px;
+    cursor: pointer;
+    color: var(--ink);
+    opacity: 0;
+    user-select: none;
+    transition: opacity 100ms ease, transform 80ms ease;
+    font-size: 0.78em;
+    line-height: 1;
+  }
+
+  .card:hover .star-toggle { opacity: 0.25; }
+  .star-toggle:hover { opacity: 0.6; }
+  .star-toggle.active { color: var(--ochre); opacity: 1 !important; }
+  .star-toggle.active:hover { transform: scale(0.85); }
+
+  .card-body { flex: 1; min-width: 0; }
+
+  .card-text {
+    cursor: text;
+    min-width: 0;
+    font-weight: 500;
+  }
+
+  .card-text:focus {
+    outline: 2px solid var(--ochre);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: rgba(13, 14, 19, 0.5);
+  }
+
+  .card-timer.running { color: var(--ink); opacity: 0.75; font-weight: 600; }
+  .card-timer.overtime { color: #B14A2C; font-weight: 700; }
+
+  .card .remove {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 13px;
+    color: var(--ink);
+    opacity: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px 4px;
+    line-height: 1;
+    transition: opacity 100ms ease;
+  }
+
+  .card:hover .remove { opacity: 0.35; }
+  .card .remove:hover { opacity: 0.85 !important; }
+
+  .add-row {
+    flex: 0 0 auto;
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .add-row input {
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 8px;
+    padding: 8px 10px;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 12.5px;
+  }
+
+  .add-row input::placeholder { color: var(--text-faint); }
+
+  .add-row input:focus {
+    outline: none;
+    border-color: var(--ochre);
+    box-shadow: 0 0 0 3px rgba(217, 151, 63, 0.15);
+  }
+
+  .add-row input[type="text"] { flex: 1 1 90px; min-width: 70px; }
+  .add-row input[type="date"] { flex: 0 0 112px; color-scheme: dark; font-size: 11.5px; padding: 8px 6px; }
+
+  .duration-input {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 8px;
+    padding: 8px 9px;
+    transition: border-color 100ms ease, box-shadow 100ms ease;
+  }
+
+  .duration-input:focus-within {
+    border-color: var(--ochre);
+    box-shadow: 0 0 0 3px rgba(217, 151, 63, 0.15);
+  }
+
+  .duration-input.disabled {
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .duration-input input[type="number"] {
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 20px;
+    text-align: center;
+    color: var(--text);
+    font-family: var(--font);
+    font-variant-numeric: tabular-nums;
+    font-size: 12.5px;
+    -moz-appearance: textfield;
+  }
+
+  .duration-input input[type="number"]::-webkit-outer-spin-button,
+  .duration-input input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .duration-input input[type="number"]:focus { outline: none; }
+
+  .duration-sep {
+    color: var(--text-dim);
+    font-weight: 600;
+    font-size: 12px;
+  }
+
+  .add-row input:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .add-row button {
+    background: linear-gradient(135deg, #E7A855, #C2703B);
+    color: #1A130A;
+    border: none;
+    border-radius: 8px;
+    padding: 0 14px;
+    font-family: var(--font);
+    font-size: 12.5px;
+    font-weight: 650;
+    cursor: pointer;
+    box-shadow: 0 4px 10px -4px rgba(194, 112, 59, 0.55);
+    transition: filter 100ms ease;
+  }
+
+  .add-row button:hover { filter: brightness(1.07); }
+
+  .add-row button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  footer {
+    flex: 0 0 auto;
+    margin-top: 14px;
+    color: var(--text-faint);
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>Hue</h1>
+  <div class="clock" id="clock"><span class="time" id="clockTime"></span><span class="dot">·</span><span id="clockDate"></span><span class="dot">·</span><span class="active-label">Active</span><span class="daily-value" id="dailyTimerValue">00:00:00</span></div>
+  <div></div>
+</div>
+
+<div class="board" id="board"></div>
+
+<footer>Drag within or across columns to reorder — 5 tasks max per column. Click a task to rename it, or the faint star to mark it high priority.</footer>
+
+<script>
+const MAX_TASKS = 5;
+
+function todayKey() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+const loaded = loadFromStorage();
+
+const COLUMNS = (loaded && loaded.columns) || [
+  { id: 'todo', title: 'To do', tasks: [] },
+  { id: 'doing', title: 'Doing', tasks: [] },
+  { id: 'done', title: 'Done', tasks: [] },
+];
+
+let DAILY = (loaded && loaded.daily) || { date: todayKey(), seconds: 0, runningSince: null };
+
+const STORAGE_KEY = 'the-desk-kanban-data';
+
+function loadFromStorage() {
+  try {
+    const raw = localStorage.getItem('the-desk-kanban-data');
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) return { columns: parsed, daily: null };
+    if (parsed && Array.isArray(parsed.columns)) return { columns: parsed.columns, daily: parsed.daily || null };
+    return null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function saveToStorage() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ columns: COLUMNS, daily: DAILY }));
+  } catch (e) {
+    // storage unavailable (private browsing, sandboxed preview, etc.) — fail silently
+  }
+}
+
+function t() { return 'id' + Math.random().toString(36).slice(2, 10); }
+
+const MAX_SIZE = 32, MIN_SIZE = 16, STEP = 4;
+
+function sizeFor(index) {
+  return Math.max(MIN_SIZE, MAX_SIZE - index * STEP);
+}
+
+const board = document.getElementById('board');
+
+function render() {
+  checkDailyRollover();
+  freezeAllTimers();
+  resumeDoingTimers();
+  syncDailyRunningState();
+  updateActiveDisplay();
+  board.innerHTML = '';
+
+  COLUMNS.forEach(col => {
+    const colEl = document.createElement('div');
+    colEl.className = 'column';
+    colEl.dataset.col = col.id;
+    const atCap = col.tasks.length >= MAX_TASKS;
+
+    colEl.innerHTML = `
+      <div class="col-head">
+        <span class="col-title">${col.title}</span>
+        <span class="col-count">${col.tasks.length} / ${MAX_TASKS}</span>
+      </div>
+      <div class="cards" data-col="${col.id}"></div>
+      <div class="add-row">
+        <input type="text" placeholder="New task" data-add="${col.id}" ${atCap ? 'disabled' : ''}>
+        <input type="date" data-adddate="${col.id}" ${atCap ? 'disabled' : ''}>
+        <div class="duration-input${atCap ? ' disabled' : ''}">
+          <input type="number" min="0" max="99" placeholder="00" data-addhrs="${col.id}" ${atCap ? 'disabled' : ''}>
+          <span class="duration-sep">:</span>
+          <input type="number" min="0" max="59" placeholder="00" data-addmins="${col.id}" ${atCap ? 'disabled' : ''}>
+        </div>
+        <button data-addbtn="${col.id}" ${atCap ? 'disabled' : ''}>Add</button>
+      </div>
+    `;
+
+    const cardsEl = colEl.querySelector('.cards');
+
+    col.tasks.forEach((task, i) => {
+      cardsEl.appendChild(makeCard(col.id, task, i));
+    });
+
+    colEl.addEventListener('dragover', e => {
+      e.preventDefault();
+      const draggingEl = document.querySelector('.card.dragging');
+      if (!draggingEl) return;
+
+      const alreadyHere = cardsEl.contains(draggingEl);
+      const otherCount = cardsEl.querySelectorAll('.card:not(.dragging)').length;
+
+      if (!alreadyHere && otherCount >= MAX_TASKS) {
+        colEl.classList.remove('drag-over');
+        colEl.classList.add('drag-blocked');
+        return;
+      }
+
+      colEl.classList.remove('drag-blocked');
+      colEl.classList.add('drag-over');
+      const afterElement = getDragAfterElement(cardsEl, e.clientY);
+      if (afterElement == null) {
+        cardsEl.appendChild(draggingEl);
+      } else {
+        cardsEl.insertBefore(draggingEl, afterElement);
+      }
+    });
+    colEl.addEventListener('dragleave', e => {
+      if (!colEl.contains(e.relatedTarget)) {
+        colEl.classList.remove('drag-over');
+        colEl.classList.remove('drag-blocked');
+      }
+    });
+    colEl.addEventListener('drop', e => {
+      e.preventDefault();
+      colEl.classList.remove('drag-over');
+      colEl.classList.remove('drag-blocked');
+    });
+
+    board.appendChild(colEl);
+  });
+
+  board.querySelectorAll('[data-addbtn]').forEach(btn => {
+    btn.addEventListener('click', () => addTask(btn.dataset.addbtn));
+  });
+  board.querySelectorAll('[data-add]').forEach(input => {
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') addTask(input.dataset.add);
+    });
+  });
+
+  updateBlur();
+  saveToStorage();
+}
+
+function updateBlur() {
+  const doingCol = COLUMNS.find(c => c.id === 'doing');
+  const shouldBlur = doingCol.tasks.length > 0;
+  const todoCardsEl = board.querySelector('.column[data-col="todo"] .cards');
+  if (!todoCardsEl) return;
+  todoCardsEl.querySelectorAll('.card').forEach(card => {
+    card.classList.toggle('blurred', shouldBlur);
+  });
+}
+
+function makeCard(colId, task, index) {
+  const el = document.createElement('div');
+  el.className = 'card';
+  el.draggable = true;
+  el.style.fontSize = sizeFor(index) + 'px';
+  el.dataset.taskId = task.id;
+  el.dataset.col = colId;
+
+  const handle = document.createElement('div');
+  handle.className = 'drag-handle';
+  handle.innerText = '⠿';
+  handle.title = 'Drag to reorder';
+  el.appendChild(handle);
+
+  const star = document.createElement('div');
+  star.className = 'star-toggle' + (task.priority ? ' active' : '');
+  star.innerText = '★';
+  star.title = task.priority ? 'Unmark as high priority' : 'Mark as high priority';
+  star.addEventListener('mousedown', e => e.stopPropagation());
+  star.addEventListener('click', e => {
+    e.stopPropagation();
+    task.priority = !task.priority;
+    render();
+  });
+  el.appendChild(star);
+
+  const text = document.createElement('div');
+  text.className = 'card-text';
+  text.contentEditable = 'true';
+  text.spellcheck = false;
+  text.innerText = task.text;
+
+  text.addEventListener('mousedown', e => e.stopPropagation());
+  text.addEventListener('blur', () => {
+    task.text = text.innerText.trim() || task.text;
+    render();
+  });
+  text.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); text.blur(); }
+  });
+
+  const body = document.createElement('div');
+  body.className = 'card-body';
+  body.appendChild(text);
+
+  if (task.date || task.durationMinutes) {
+    const meta = document.createElement('div');
+    meta.className = 'card-meta';
+
+    if (task.date) {
+      const dateEl = document.createElement('span');
+      dateEl.innerText = formatDate(task.date);
+      meta.appendChild(dateEl);
+    }
+
+    if (task.durationMinutes) {
+      const timerEl = document.createElement('span');
+      timerEl.className = 'card-timer';
+      const value = effectiveValue(task);
+      if (task.runningSince) timerEl.classList.add('running');
+      if (value <= 0) timerEl.classList.add('overtime');
+      timerEl.innerText = formatSigned(value);
+      meta.appendChild(timerEl);
+    }
+
+    body.appendChild(meta);
+  }
+  el.appendChild(body);
+
+  el.addEventListener('dragstart', e => {
+    el.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+  });
+  el.addEventListener('dragend', () => {
+    el.classList.remove('dragging');
+    document.querySelectorAll('.column').forEach(c => {
+      c.classList.remove('drag-over');
+      c.classList.remove('drag-blocked');
+    });
+    syncFromDOM();
+  });
+
+  const remove = document.createElement('button');
+  remove.className = 'remove';
+  remove.innerText = '×';
+  remove.title = 'Remove task';
+  remove.addEventListener('mousedown', e => e.stopPropagation());
+  remove.addEventListener('click', e => {
+    e.stopPropagation();
+    const col = COLUMNS.find(c => c.id === colId);
+    col.tasks = col.tasks.filter(tk => tk.id !== task.id);
+    render();
+  });
+  el.appendChild(remove);
+
+  return el;
+}
+
+function getDragAfterElement(cardsEl, y) {
+  const els = [...cardsEl.querySelectorAll('.card:not(.dragging)')];
+  return els.reduce((closest, child) => {
+    const box = child.getBoundingClientRect();
+    const offset = y - box.top - box.height / 2;
+    if (offset < 0 && offset > closest.offset) {
+      return { offset, element: child };
+    }
+    return closest;
+  }, { offset: -Infinity, element: null }).element;
+}
+
+function syncFromDOM() {
+  const idToTask = {};
+  COLUMNS.forEach(c => c.tasks.forEach(tk => { idToTask[tk.id] = tk; }));
+
+  document.querySelectorAll('.column').forEach(colEl => {
+    const col = COLUMNS.find(c => c.id === colEl.dataset.col);
+    const newTasks = [];
+    colEl.querySelectorAll('.card').forEach(cardEl => {
+      const task = idToTask[cardEl.dataset.taskId];
+      if (task) newTasks.push(task);
+    });
+    col.tasks = newTasks;
+  });
+
+  render();
+}
+
+function formatDate(iso) {
+  const d = new Date(iso + 'T00:00:00');
+  if (isNaN(d)) return iso;
+  return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+}
+
+function formatClock(totalSeconds) {
+  const s = Math.max(0, totalSeconds);
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const r = s % 60;
+  if (h > 0) {
+    return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(r).padStart(2, '0');
+  }
+  return String(m).padStart(2, '0') + ':' + String(r).padStart(2, '0');
+}
+
+function addTask(colId) {
+  const col = COLUMNS.find(c => c.id === colId);
+  if (col.tasks.length >= MAX_TASKS) return;
+
+  const input = document.querySelector(`input[data-add="${colId}"]`);
+  const dateInput = document.querySelector(`input[data-adddate="${colId}"]`);
+  const hrsInput = document.querySelector(`input[data-addhrs="${colId}"]`);
+  const minsInput = document.querySelector(`input[data-addmins="${colId}"]`);
+  const text = input.value.trim();
+  if (!text) return;
+
+  const hrs = parseInt(hrsInput.value, 10) || 0;
+  const mins = parseInt(minsInput.value, 10) || 0;
+  const totalMins = hrs * 60 + mins;
+
+  const task = { id: t(), text, priority: false, date: dateInput.value || null };
+  if (totalMins > 0) {
+    task.durationMinutes = totalMins;
+    task.remainingSeconds = totalMins * 60;
+    task.runningSince = null;
+  }
+  col.tasks.push(task);
+  input.value = '';
+  dateInput.value = '';
+  hrsInput.value = '';
+  minsInput.value = '';
+  render();
+}
+
+// Wall-clock-based countdown: remainingSeconds is the frozen baseline (can go
+// negative once the timer runs past zero), and runningSince marks when it last
+// started counting. Displayed time is always recomputed from real elapsed time,
+// so throttled/paused background tabs can't cause drift. Once past zero the
+// timer keeps running as an "uptime" counter showing how long it's overrun.
+function effectiveValue(task) {
+  const base = task.remainingSeconds || 0;
+  if (!task.runningSince) return base;
+  const elapsed = Math.floor((Date.now() - task.runningSince) / 1000);
+  return base - elapsed;
+}
+
+function formatSigned(value) {
+  if (value < 0) return '+' + formatClock(-value);
+  return formatClock(value);
+}
+
+function effectiveDailyValue() {
+  if (!DAILY.runningSince) return DAILY.seconds;
+  const elapsed = Math.floor((Date.now() - DAILY.runningSince) / 1000);
+  return DAILY.seconds + elapsed;
+}
+
+function formatHMS(totalSeconds) {
+  const s = Math.max(0, Math.floor(totalSeconds));
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const r = s % 60;
+  return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(r).padStart(2, '0');
+}
+
+function updateActiveDisplay() {
+  const el = document.getElementById('dailyTimerValue');
+  if (el) el.innerText = formatHMS(effectiveDailyValue());
+}
+
+function checkDailyRollover() {
+  const today = todayKey();
+  if (DAILY.date !== today) {
+    DAILY = { date: today, seconds: 0, runningSince: DAILY.runningSince ? Date.now() : null };
+  }
+}
+
+function syncDailyRunningState() {
+  const doingCol = COLUMNS.find(c => c.id === 'doing');
+  const shouldRun = doingCol.tasks.length > 0;
+  if (shouldRun && !DAILY.runningSince) {
+    DAILY.runningSince = Date.now();
+  } else if (!shouldRun && DAILY.runningSince) {
+    DAILY.seconds = effectiveDailyValue();
+    DAILY.runningSince = null;
+  }
+}
+
+function freezeAllTimers() {
+  COLUMNS.forEach(col => col.tasks.forEach(task => {
+    if (task.durationMinutes && task.runningSince) {
+      task.remainingSeconds = effectiveValue(task);
+      task.runningSince = null;
+    }
+  }));
+}
+
+function resumeDoingTimers() {
+  const doingCol = COLUMNS.find(c => c.id === 'doing');
+  doingCol.tasks.forEach(task => {
+    if (task.durationMinutes && !task.runningSince) {
+      task.runningSince = Date.now();
+    }
+  });
+}
+
+function tickTimers() {
+  checkDailyRollover();
+
+  const doingCol = COLUMNS.find(c => c.id === 'doing');
+  let anyRunning = false;
+  doingCol.tasks.forEach(task => {
+    if (task.durationMinutes && task.runningSince) {
+      anyRunning = true;
+      const value = effectiveValue(task);
+      const timerEl = board.querySelector(`.card[data-task-id="${task.id}"] .card-timer`);
+      if (timerEl) {
+        timerEl.innerText = formatSigned(value);
+        timerEl.classList.toggle('overtime', value <= 0);
+      }
+    }
+  });
+
+  updateActiveDisplay();
+
+  if (anyRunning || DAILY.runningSince) saveToStorage();
+}
+
+function updateClock() {
+  const now = new Date();
+  const time = now.toLocaleTimeString('en-GB', { hour12: false });
+  const weekday = now.toLocaleDateString(undefined, { weekday: 'long' });
+  const date = now.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
+  document.getElementById('clockTime').innerText = time;
+  document.getElementById('clockDate').innerText = `${weekday} · ${date}`;
+}
+
+setInterval(tickTimers, 1000);
+setInterval(updateClock, 1000);
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') tickTimers();
+});
+
+updateClock();
+render();
+</script>
+</body>
+</html>
